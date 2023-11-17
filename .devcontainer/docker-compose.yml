@@ -27,9 +27,29 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
       POSTGRES_PASSWORD: postgres
+    # networks:
+    #   - postgres-pgadmin
+    # = error undefined network   
 
     # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
+  
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: unless-stopped
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: wernertrunk@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: ahK3b7n3xxa9DOYf34Sn
+      PGADMIN_LISTEN_PORT: 8080
+      PGADMIN_CONFIG_PROXY_X_HOST_COUNT: 1
+      PGADMIN_CONFIG_PROXY_X_PREFIX_COUNT: 1
+    ports:
+      - "8080:8080"
+    # networks:
+    #   - postgres-pgadmin
 
 volumes:
-  postgres-data:
+  postgres-data: {}
+  pgadmin-data: {}
