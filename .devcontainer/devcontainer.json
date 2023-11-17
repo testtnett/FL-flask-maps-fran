@@ -14,7 +14,19 @@
 	"forwardPorts": [5000, 5432, 8080],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip install --user -r requirements.txt"
+	"postCreateCommand": "pip install --user -r requirements.txt",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+			"moby": true,
+			"installDockerBuildx": true,
+			"version": "latest",
+			"dockerDashComposeVersion": "v2"
+		},
+		"remoteEnv": {
+      "DATABASE_URL": "postgresql://postgres:postgres@fl-flask-maps_devcontainer_db_1:5432/flaskblog",
+      "GOOGLE_MAPS_API_KEY": "value"
+   }
+	}
 
 	// Configure tool-specific properties.
 	// "customizations": {},
