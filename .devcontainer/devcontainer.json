@@ -21,12 +21,7 @@
 			"installDockerBuildx": true,
 			"version": "latest",
 			"dockerDashComposeVersion": "v2"
-		},
-		// hmm ? error ! on build :
-	// 	"remoteEnv": {
-  //     "DATABASE_URL": "postgresql://postgres:postgres@fl-flask-maps_devcontainer_db_1:5432/flaskblog",
-  //     "GOOGLE_MAPS_API_KEY": "value"
-  //  }
+		}
 	}
 
 	// Configure tool-specific properties.
