@@ -8,4 +8,4 @@ devcontainer ,.. ins repo
 repo moved to team
 open as tester = :heavy_check_mark: ok lauft 
 
-push from tester = 
+push from tester = :heavy_check_mark: ok
