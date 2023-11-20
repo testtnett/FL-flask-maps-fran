@@ -4,10 +4,13 @@
 :heavy_check_mark: open browser via vscode tunnel  
 ? open browser online 
 
+### debug
+- [x] vscode launch config: Python: Flask
 
 ## live share
-ok created mit tester, no commit for tester  
-terminal bash: erstma read only , request edit via bell = ok  
+ok created mit vscode, share to tester in brave  
+no commit for tester  
+terminal bash: erstmal read only, request edit via bell = ok  
 
 
 ## codespace + team
@@ -21,3 +24,9 @@ push from tester = :heavy_check_mark: ok
 - [x] api key
 
 how to share ? = github codespace team secrets 
+
+#### show env vars
+echo $DATABASE_URL  
+echo $POSTGRES_PASSWORD  
+echo $PGADMIN_DEFAULT_PASSWORD  
+echo $GOOGLE_MAPS_API_KEY  
