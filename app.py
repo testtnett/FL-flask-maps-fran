@@ -3,8 +3,10 @@ import sys
 from flask import Flask, request, abort, jsonify, render_template, url_for, flash, redirect
 from flask_cors import CORS
 import traceback
+import click
 from forms import NewLocationForm, AddPosts
-from models import setup_db, Location, db_drop_and_create_all, Post, db
+from models import setup_db, Location, db_drop_and_create_all, Post, db, tableExists
+
 
 def create_app(test_config=None):
     # create and configure the app
@@ -16,7 +18,16 @@ def create_app(test_config=None):
     app.config['SECRET_KEY'] = SECRET_KEY
 
     """ uncomment at the first time running the app. Then comment back so you do not erase db content over and over """
-    db_drop_and_create_all()
+    if tableExists() == 1:
+        print('DB exist')
+    else:
+        db_drop_and_create_all()
+        print('DB created') 
+    
+    @app.cli.command("reset")
+    def reset():
+        db_drop_and_create_all()
+        print('DB recreated')  
 
     @app.route('/', methods=['GET'])
     def home():

@@ -64,6 +64,19 @@ def insert_sample_locations():
         )
     )
     loc3.insert()
+    
+def countRows():
+    # c = db.session.query().count() 
+    query1 = db.select(db.text('count(*) AS count_1 FROM sample_locations'))
+    res = db.session.execute(query1)
+    c = res.scalar()
+    return c
+
+def tableExists():
+    query1 = db.select(db.text(" FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'sample_locations'"))
+    res = db.session.execute(query1)
+    c = res.rowcount
+    return c
 
 class SpatialConstants:
     SRID = 4326
@@ -124,6 +137,7 @@ class Location(db.Model):
 
     def update(self):
         db.session.commit()
+    
 
 
 
