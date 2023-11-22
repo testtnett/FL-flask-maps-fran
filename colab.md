@@ -6,6 +6,19 @@
 
 ### debug
 - [x] vscode launch config: Python: Flask
+- [ ] flask python live reload  
+
+#### flask < 2.2 :  
+debug env parameter:  
+*export FLASK_APP=app.py*  
+*export FLASK_ENV=development*  
+*flask run*  
+
+:heavy_check_mark: works, compiles on browser reload, not on save, which would cause troubles with autosave anyway ?  
+
+#### flask 2.2  
+*flask --app main.py --debug run*  
+and env parameter works also
 
 ## live share
 ok created mit vscode, share to tester in brave  
@@ -30,3 +43,6 @@ echo $DATABASE_URL
 echo $POSTGRES_PASSWORD  
 echo $PGADMIN_DEFAULT_PASSWORD  
 echo $GOOGLE_MAPS_API_KEY  
+
+## markdown
+https://github.com/testtnett/notes/blob/main/doc/markdown.md
